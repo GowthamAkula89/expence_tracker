@@ -20,6 +20,7 @@
     height:38px;
     border: none;
     border-radius: 22px;
+    cursor: pointer;
 }
 .addingAmount{
     color: #9DFF5B;
@@ -33,6 +34,60 @@
 #subtractingAmount{
     background-image:linear-gradient(to right, #FF9595, #FF4747,#FF3838);
 }
+.add-balance{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 29px;
+}
+.enter-value{
+    width: 217px;
+    height: 45PX;
+    border-radius: 15px;
+    border: none;
+}
+.add-balance-btn{
+    width: 142px;
+    height: 45PX;
+    border-radius: 15px;
+    border: none;
+    background-color: #F4BB4A;
+}
+.close-btn{
+    width: 115px;
+    height: 45PX;
+    border-radius: 15px;
+    border: none;
+    background-color: #E3E3E3;
+}
+.add-cancel-btns{
+    display: flex;
+    gap: 12px;
+}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #EFEFEF;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 538px;
+    width: 100%;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
 @media screen and (max-width: 768px) {
     .wallet-card {
         height: 113px;
