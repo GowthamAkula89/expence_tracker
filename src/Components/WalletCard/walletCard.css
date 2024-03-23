@@ -1,0 +1,49 @@
+.wallet-card{
+    height: 181px;
+    width: 356px;
+    background-color: #9B9B9B;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgb(60, 60, 63);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.wallet-card-text{
+    font-size: 30px;
+    font-weight: 400;
+    color: #FFFFFF;
+    text-align: center;
+}.add-btn{
+    width: 168px;
+    height:38px;
+    border: none;
+    border-radius: 22px;
+}
+.addingAmount{
+    color: #9DFF5B;
+}
+#addingAmount{
+    background-image:linear-gradient(to right, #B5DC52, #89E148);
+}
+.subtractingAmount{
+    color: #F4BB4A;
+}
+#subtractingAmount{
+    background-image:linear-gradient(to right, #FF9595, #FF4747,#FF3838);
+}
+@media screen and (max-width: 768px) {
+    .wallet-card {
+        height: 113px;
+        width: 214px;
+    }
+    .wallet-card-text {
+        font-size: 21px;
+        font-weight: 300;
+    }
+    .add-btn{
+        width: 142px;
+        height: 36px;
+    }
+}

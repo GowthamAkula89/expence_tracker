@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-
+import WalletCard from './Components/WalletCard';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='heading'>Expense Tracker</div>
+      <div className='tracker-head-section'>
+        <div className='wallet-section'>
+          <WalletCard text = "Wallet Balance" btn_text = "Add Income" transactionType = "addingAmount"/>
+          <WalletCard text = "Expenses" btn_text = "Add Expense" transactionType = "subtractingAmount"/>
+        </div>
+      </div>
     </div>
   );
 }
