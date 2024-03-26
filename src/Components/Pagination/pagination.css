@@ -1,0 +1,21 @@
+.pagination{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
+}
+.navigate-btn{
+    width: 32px;
+    height: 35px;
+    border-radius: 15px;
+    background-color: #eae1e1;
+    position: relative;
+    border: none;
+}
+
+.navigate-position{
+    position: absolute;
+    top: 12px;
+    left: 9px;
+}

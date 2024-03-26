@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "./walletCard.css";
 const WalletCard = ({ text, btn_text, transactionType,value, setExpensesList }) => {
-    console.log("value",value);
     const [amount, setAmount] = useState(value);
-    console.log("amount",amount);
     const [showModal, setShowModal] = useState(false);
     const [newAmount, setNewAmount] = useState({ title: "", price: 0, category: "", date: "" });
     useEffect(() => {

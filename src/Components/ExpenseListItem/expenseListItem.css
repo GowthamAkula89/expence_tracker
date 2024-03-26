@@ -1,0 +1,40 @@
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+}
+.list-item-content{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.expense-type{
+    width: 35px;
+    height: 35px;
+}
+.item-sub-content{
+    display: flex;
+    flex-direction: column;
+}
+.list-price-btns{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.expense-title{
+    font-size: 16px;
+    font-weight: 400;
+}
+.expense-date{
+    color: #9B9B9B;
+}
+.expense-price{
+    font-size: 16px;
+    font-weight: 700;
+    color: #F4BB4A;
+}
+.list-btns{
+    display: flex;
+    align-items: center;
+}
