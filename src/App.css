@@ -1,19 +1,26 @@
 .App {
-  height: 100vh;
+  height: 100%;
   background-color: #3B3B3B;
   padding: 15px;
 }
+
 .heading{
   color: white;
+
   font-size: 32px;
   font-weight: 700;
 }
-.tracker-head-section{
-  background-color: #626262;
-}
 .wallet-section{
-  padding: 45px 56px;
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
+}
+.tracker-head-section{
+  background-color: #626262;
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 45px 92px;
 }

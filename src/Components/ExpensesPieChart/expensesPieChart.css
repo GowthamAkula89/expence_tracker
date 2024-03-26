@@ -1,0 +1,43 @@
+.pie-chart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.expense-identity{
+    display: flex;
+    gap: 16px;
+}
+.color-align{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.color-box{
+    width: 26px;
+    height: 8px;
+}
+.travel-color{
+    background-color: #FDE006;
+}
+.travel-text-color{
+    color: #FDE006;
+}
+.entertainment-color{
+    background-color: #FF9304;
+}
+.entertainment-text-color{
+    color: #FF9304;
+}
+.food-color{
+    background-color: #A000FF;
+}
+.food-text-color{
+    color: #A000FF;
+}
+@media screen and (max-width: 768px){
+    .expense-identity{
+        flex-direction: column;
+    }
+}
