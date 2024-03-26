@@ -28,10 +28,10 @@
 #addingAmount{
     background-image:linear-gradient(to right, #B5DC52, #89E148);
 }
-.subtractingAmount{
+.expenseAmount{
     color: #F4BB4A;
 }
-#subtractingAmount{
+#expenseAmount{
     background-image:linear-gradient(to right, #FF9595, #FF4747,#FF3838);
 }
 .add-balance{
@@ -63,6 +63,21 @@
     display: flex;
     gap: 12px;
 }
+.card-title{
+    font-size: 30px;
+    font-weight: 700;
+}
+.expense-amount-card{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+.expense-details-field{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 .modal {
     position: absolute;
     top: 50%;
@@ -71,9 +86,7 @@
     background-color: #EFEFEF;
     padding: 20px;
     border-radius: 8px;
-    max-width: 538px;
-    width: 100%;
-    max-height: 80%;
+    width: 538px;
     overflow-y: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -100,5 +113,8 @@
     .add-btn{
         width: 142px;
         height: 36px;
+    }
+    .modal{
+        width: auto;
     }
 }
