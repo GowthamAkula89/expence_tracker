@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "./walletCard.css";
-const WalletCard = ({ text, btn_text, transactionType,value, setExpensesList }) => {
+const WalletCard = ({ text, btn_text, transactionType,value, setExpensesList, setWalletBalance }) => {
     const [amount, setAmount] = useState(value);
     const [showModal, setShowModal] = useState(false);
     const [newAmount, setNewAmount] = useState({ title: "", price: 0, category: "", date: "" });
@@ -14,7 +14,7 @@ const WalletCard = ({ text, btn_text, transactionType,value, setExpensesList }) 
 
     const handleAddMoney = () => {
         if (transactionType === "addingAmount") {
-            setAmount(prevAmount => prevAmount + newAmount.price);
+            setWalletBalance(prevAmount => prevAmount + newAmount.price);
         } else if (transactionType === "expenseAmount") {
             const expense = { ...newAmount };
             setExpensesList(prevList => [...prevList, expense]);

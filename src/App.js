@@ -3,7 +3,12 @@ import './App.css';
 import WalletCard from './Components/WalletCard';
 import ExpensesList from './Components/ExpensesList';
 import ExpensesPieChart from './Components/ExpensesPieChart';
+
 function App() {
+  const [walletBalance, setWalletBalance] = useState(localStorage.getItem('walletBalance')|| 5000);
+  useEffect(() => {
+    localStorage.setItem('walletBalance',walletBalance);
+  },[walletBalance])
   const [expensesList, setExpensesList] = useState(
     JSON.parse(localStorage.getItem('expensesList')) || [
       { title: 'Treaking', price: 445, category: 'Travel', date: '25/08/2023' },
@@ -20,6 +25,25 @@ function App() {
     setTotalExpenses(totalExpensesValue);
   },[expensesList])
 
+  const [categoriesData, setCategoriesData] = useState([]);
+    const COLORS = ['#A000FF', '#FF9304', '#FDE006'];
+    useEffect(() => {
+        // Calculate total expenses for each category
+        const totalExpenses = expensesList.reduce((acc, expense) => {
+            acc[expense.category] = (acc[expense.category] || 0) + expense.price;
+            return acc;
+        }, {});
+
+        // Convert total expenses into pie chart data format
+        const pieChartData = Object.keys(totalExpenses).map((category, index) => ({
+            name: category,
+            value: totalExpenses[category],
+            color: COLORS[index % COLORS.length] // Assign color from COLORS array based on index
+        }));
+
+        setCategoriesData(pieChartData);
+    }, [expensesList]);
+    categoriesData.sort((a, b) => b.value - a.value);
   return (
     <div className="App">
       <div className='heading'>Expense Tracker</div>
@@ -29,7 +53,9 @@ function App() {
               text = "Wallet Balance" 
               btn_text = "Add Income" 
               transactionType = "addingAmount" 
-              value = {5000}/>
+              value = {parseInt(walletBalance)}
+              setWalletBalance = {setWalletBalance}
+          />
           <WalletCard 
               text = "Expenses" 
               btn_text = "Add Expense" 
@@ -37,10 +63,9 @@ function App() {
               value = {parseInt(totalExpenses)} 
               setExpensesList={setExpensesList}/>
         </div>
-        <ExpensesPieChart expensesList={expensesList}/>
+        <ExpensesPieChart categoriesData={categoriesData}/>
       </div>
-      <ExpensesList expensesList={expensesList} setExpensesList={setExpensesList}/>
-      
+        <ExpensesList expensesList={expensesList} setExpensesList={setExpensesList} categoriesData={categoriesData}/>
     </div>
   );
 }

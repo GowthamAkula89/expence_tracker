@@ -1,0 +1,17 @@
+
+.bar-chart{
+    width: 717px;
+    height: 345px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+    padding: 26px;
+}
+@media screen and (max-width: 672px) {
+    .bar-chart {
+        width: 295px;
+        height: 176px;
+    }
+}

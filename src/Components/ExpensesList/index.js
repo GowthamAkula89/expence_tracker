@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./expensesList.css";
 import ExpensesListItem from "../ExpenseListItem";
 import Pagination from "../Pagination";
-const ExpensesList = ({ expensesList, setExpensesList }) => {
+import ExpensesBarChart from '../ExpensesBarChart';
+const ExpensesList = ({ expensesList, setExpensesList,categoriesData }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(3);
     const [currentItems, setCurrentItems] = useState([]);
@@ -28,40 +29,43 @@ const ExpensesList = ({ expensesList, setExpensesList }) => {
     return (
         <div>
             <div className="expense-list-heading">Recent Transactions</div>
-            <div className="expenses-list">
-                {expensesList.length === 0 ? (
-                    <div className="transaction-message">No Transactions</div>
-                ) : (
-                    <>
-                        {currentItems.map((expense, index) => {
-                            let imgType = "";
-                            if (expense.category === "Food") {
-                                imgType = "food.png";
-                            } else if (expense.category === "Entertainment") {
-                                imgType = "entertainment.png";
-                            } else if (expense.category === "Travel") {
-                                imgType = "travel.png";
-                            }
-                            const globalIndex = (currentPage - 1) * itemsPerPage + index;
-                            return(
-                            <div key={index}>
-                                <ExpensesListItem 
-                                    imgType = {imgType} 
-                                    index = {globalIndex}
-                                    expense = {expense}
-                                    expensesList = {expensesList}
-                                    setExpensesList = {setExpensesList}
-                                />
-                            </div>
-                            )
-                        })}
-                        <Pagination
-                            currentPage = {currentPage}
-                            paginate = {paginate}
-                            totalPages = {totalPages}
-                        />
-                    </>
-                )}
+            <div className="expneses-transaction-topList">
+                <div className="expenses-list">
+                    {expensesList.length === 0 ? (
+                        <div className="transaction-message">No Transactions</div>
+                    ) : (
+                        <>
+                            {currentItems.map((expense, index) => {
+                                let imgType = "";
+                                if (expense.category === "Food") {
+                                    imgType = "food.png";
+                                } else if (expense.category === "Entertainment") {
+                                    imgType = "entertainment.png";
+                                } else if (expense.category === "Travel") {
+                                    imgType = "travel.png";
+                                }
+                                const globalIndex = (currentPage - 1) * itemsPerPage + index;
+                                return(
+                                <div key={index}>
+                                    <ExpensesListItem 
+                                        imgType = {imgType} 
+                                        index = {globalIndex}
+                                        expense = {expense}
+                                        expensesList = {expensesList}
+                                        setExpensesList = {setExpensesList}
+                                    />
+                                </div>
+                                )
+                            })}
+                            <Pagination
+                                currentPage = {currentPage}
+                                paginate = {paginate}
+                                totalPages = {totalPages}
+                            />
+                        </>
+                    )}
+                </div>
+                <ExpensesBarChart categoriesData={categoriesData}/>
             </div>
         </div>
     );
