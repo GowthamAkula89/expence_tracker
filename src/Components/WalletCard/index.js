@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
+import { useSnackbar } from 'notistack';
 import "./walletCard.css";
 const WalletCard = ({ text, btn_text, transactionType,value, setExpensesList, setWalletBalance }) => {
     const [amount, setAmount] = useState(value);
     const [showModal, setShowModal] = useState(false);
     const [newAmount, setNewAmount] = useState({ title: "", price: 0, category: "", date: "" });
+    const { enqueueSnackbar } = useSnackbar();
     useEffect(() => {
         setAmount(value);
     }, [value]);
     const handleExpenses = () => {
         setShowModal(true);
     };
-
     const handleAddMoney = () => {
         if (transactionType === "addingAmount") {
             setWalletBalance(prevAmount => prevAmount + newAmount.price);
         } else if (transactionType === "expenseAmount") {
+            if (newAmount.price > amount) {
+                enqueueSnackbar('Expense price exceeds wallet amount!', { variant: 'error' });
+                return;
+            }
             const expense = { ...newAmount };
             setExpensesList(prevList => [...prevList, expense]);
         }
