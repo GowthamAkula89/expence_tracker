@@ -3,7 +3,7 @@ import "./expensesList.css";
 import ExpensesListItem from "../ExpenseListItem";
 import Pagination from "../Pagination";
 import ExpensesBarChart from '../ExpensesBarChart';
-const ExpensesList = ({ expensesList, setExpensesList,categoriesData }) => {
+const ExpensesList = ({ expensesList, setExpensesList,categoriesData, setWalletBalance }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(3);
     const [currentItems, setCurrentItems] = useState([]);
@@ -53,6 +53,7 @@ const ExpensesList = ({ expensesList, setExpensesList,categoriesData }) => {
                                         expense = {expense}
                                         expensesList = {expensesList}
                                         setExpensesList = {setExpensesList}
+                                        setWalletBalance = {setWalletBalance}
                                     />
                                 </div>
                                 )

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./expenseListItem.css";
-const ExpensesListItem = ({imgType, index, expensesList, setExpensesList,  expense}) => {
+const ExpensesListItem = ({imgType, index, expensesList, setExpensesList,  expense, setWalletBalance}) => {
     const [editIndex, setEditIndex] = useState(-1);
     const [editedItem, setEditedItem] = useState({});
     const handleEdit = (index) => {
@@ -17,6 +17,8 @@ const ExpensesListItem = ({imgType, index, expensesList, setExpensesList,  expen
         setEditIndex(-1);
     };
     const handleDelete = (index) => {
+        const deletedExpense = expensesList[index];
+        setWalletBalance(prevBalance => prevBalance + deletedExpense.price);
         const updatedExpenses = [...expensesList];
         updatedExpenses.splice(index, 1);
         setExpensesList(updatedExpenses);

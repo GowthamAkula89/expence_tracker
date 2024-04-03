@@ -60,12 +60,18 @@ function App() {
               text = "Expenses" 
               btn_text = "Add Expense" 
               transactionType = "expenseAmount" 
-              value = {parseInt(totalExpenses)} 
+              value = {parseInt(totalExpenses)}
+              setWalletBalance = {setWalletBalance} 
               setExpensesList={setExpensesList}/>
         </div>
         <ExpensesPieChart categoriesData={categoriesData}/>
       </div>
-        <ExpensesList expensesList={expensesList} setExpensesList={setExpensesList} categoriesData={categoriesData}/>
+        <ExpensesList 
+          expensesList={expensesList} 
+          setExpensesList={setExpensesList} 
+          categoriesData={categoriesData}
+          setWalletBalance={setWalletBalance}
+        />
     </div>
   );
 }

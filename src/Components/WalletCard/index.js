@@ -21,6 +21,7 @@ const WalletCard = ({ text, btn_text, transactionType,value, setExpensesList, se
                 enqueueSnackbar('Expense price exceeds wallet amount!', { variant: 'error' });
                 return;
             }
+            setWalletBalance(prevAmount => prevAmount - newAmount.price);
             const expense = { ...newAmount };
             setExpensesList(prevList => [...prevList, expense]);
         }
